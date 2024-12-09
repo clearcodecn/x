@@ -2,6 +2,6 @@ package x
 
 import "net"
 
-type Dialer net.Dialer
+type Dialer func(network, address string) (net.Conn, error)
 
-var DefaultDialer = net.Dial
+var DefaultDial Dialer = net.Dial
